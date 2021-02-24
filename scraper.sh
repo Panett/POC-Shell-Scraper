@@ -18,11 +18,11 @@ printHelp() {
 
 while getopts ":hu:t:f:" opt; do
 	case $opt in
-	    h) printHelp ;;
+        h) printHelp ;;
         u) url=${OPTARG} ;;
         t) table_id=${OPTARG} ;;
         f) filename=${OPTARG} ;;
-	    \?) echo "Invalid option -${OPTARG}" ; exit 1;;
+        \?) echo "Invalid option -${OPTARG}" ; exit 1;;
 	esac
 done
 shift $((OPTIND-1))
