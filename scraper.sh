@@ -49,8 +49,7 @@ fi
 ######################## MAIN BODY ########################
 
 # Index for tr xpath
-counter=1
-
+counter=0
 
 # Download page
 page=$(curl -s -f -m 10 $url)
@@ -71,7 +70,9 @@ fi
 
 while true; do 
 
-    # Search tr
+    counter=$((counter+1))
+
+    # Search for tr
 	tr=$(echo $tableBody | xmllint --xpath "//tr[$counter]" - 2> /dev/null)
 
     # Exit if there are no more tr found
@@ -85,6 +86,4 @@ while true; do
 
     # Write to file
     echo $commandName $commandUrl >> $filename
-
-    counter=$((counter+1))
 done
