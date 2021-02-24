@@ -2,7 +2,6 @@
 
 ## Flags
 
-<pre>
 <table>
   <tr>
     <td>-u &lturl></td>
@@ -21,7 +20,6 @@
     <td>Print helper message</td>
   </tr>
 </table>
-</pre>
 
 ## Example
 ./scraper -u "https://gtfobins.github.io" -t "bin-table" -f "db"
