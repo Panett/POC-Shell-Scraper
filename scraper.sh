@@ -14,7 +14,7 @@ printHelp() {
     exit 1
 }
 
-######################## OPTION PARSING ########################
+######################## OPTIONS HANDLING ########################
 
 while getopts ":hu:t:f:" opt; do
 	case $opt in
