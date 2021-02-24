@@ -16,7 +16,7 @@
     <td>Output file (mandatory flag)</td>
   </tr>
   <tr>
-    <td>-h &ltfile></td>
+    <td>-h</td>
     <td>Print helper message</td>
   </tr>
 </table>
