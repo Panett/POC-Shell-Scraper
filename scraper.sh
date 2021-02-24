@@ -4,8 +4,6 @@ url=""
 table_id=""
 filename=""
 
-# ./scraper -u "https://gtfobins.github.io" -t "bin-table" -f "db"
-
 missingParameter=false
 
 printHelp() {
