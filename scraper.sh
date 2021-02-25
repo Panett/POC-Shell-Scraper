@@ -51,32 +51,27 @@ fi
 # Index for tr xpath
 counter=0
 
-# Download page
-page=$(curl -s -f -m 10 $url)
-if [ ! "$?" -eq "0" ] ; then
+# Download page. Exit if curl fails.
+if ! page=$(curl -s -f -m 10 $url) ; then
     echo "Error: URL is unreachable"
     exit 1
 fi
 
-# Get table body
-tableBody=$(echo $page | xmllint --html --xpath "//table[@id=\"$table_id\"]/tbody" - 2>/dev/null | xmllint --format - 2>/dev/null )
-if [ ! "$?" -eq "0" ] ; then
+# Get table body. Exit if table id is not found.
+if ! tableBody=$(echo $page | xmllint --html --xpath "//table[@id=\"$table_id\"]/tbody" - 2>/dev/null | xmllint --format - 2>/dev/null ) ; then
     echo "Error: Table ID not found"
     exit 1
 fi
 
 # Clean file
-> $filename
+echo "" > $filename
 
 while true; do 
 
     counter=$((counter+1))
 
-    # Search for tr
-	tr=$(echo $tableBody | xmllint --xpath "//tr[$counter]" - 2> /dev/null)
-
-    # Exit if there are no more tr found
-    if [ ! "$?" -eq "0" ] ; then
+    # Search for tr. Exit if there are no more tr found.
+    if ! tr=$(echo $tableBody | xmllint --xpath "//tr[$counter]" - 2> /dev/null) ; then
         exit 0
     fi
 
