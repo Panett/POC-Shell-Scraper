@@ -22,4 +22,4 @@
 </table>
 
 ## Example
-`./scraper -u "https://gtfobins.github.io" -t "bin-table" -f "db"`
+`./scraper.sh -u "https://gtfobins.github.io" -t "bin-table" -f "db"`
